@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>National Park Visitor Data</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <h1>National Park Visitor Data</h1>
+  <canvas id="visitorChart" width="800" height="400"></canvas>
+
+  <script>
+    // Your URL
+    var url = "https://npexplorer.arhansethi.repl.co/parkinfo.html?parkCode=ABLI";
+
+    // Extract the park code from the URL
+    var parkCode = new URL(url).searchParams.get("parkCode");
+
+    if (parkCode) {
+      // Load data from visitData.json
+      fetch('visitData.json')
+        .then(response => response.json())
+        .then(data => {
+          // Filter data for the specific Park Code
+          const filteredData = data.filter(entry => entry["Park Code"] === parkCode);
+          processDataAndCreateChart(filteredData);
+        })
+        .catch(error => console.error('Error loading data:', error));
+    } else {
+      console.log("Invalid URL format");
+    }
+
+    function processDataAndCreateChart(jsonData) {
+      const months = jsonData.map(entry => entry.Month);
+      const visits = jsonData.map(entry => parseInt(entry.Visits.replace(/,/g, ''), 10));
+
+      const ctx = document.getElementById('visitorChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: months,
+          datasets: [{
+            label: parkCode,
+            data: visits,
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 2,
+          }],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    }
+  </script>
+</body>
+
+</html>

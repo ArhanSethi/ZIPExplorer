@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>National Park Visitor Data</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <h1>National Park Visitor Data</h1>
+  <canvas id="visitorChart" width="800" height="400"></canvas>
+
+  <script>
+    const parkCode = "ABLI"; // Change this to the desired Park Code
+
+    // Load data from visitData.json
+    fetch('visitData.json')
+      .then(response => response.json())
+      .then(data => {
+        // Filter data for the specific Park Code
+        const filteredData = data.filter(entry => entry["Park Code"] === parkCode);
+        processDataAndCreateChart(filteredData);
+      })
+      .catch(error => console.error('Error loading data:', error));
+
+    function processDataAndCreateChart(jsonData) {
+      const parks = {};
+
+      jsonData.forEach(entry => {
+        const parkCode = entry["Park Code"];
+        if (!parks[parkCode]) {
+          parks[parkCode] = {
+            label: entry.Park,
+            data: [],
+          };
+        }
+        parks[parkCode].data.push(parseInt(entry.Visits.replace(/,/g, ''), 10));
+      });
+
+      const months = [...Array(12).keys()].map(month => month + 1);
+
+      const datasets = Object.values(parks).map(park => ({
+        label: park.label,
+        data: park.data,
+      }));
+
+      const ctx = document.getElementById('visitorChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: months,
+          datasets: datasets,
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    }
+  </script>
+</body>
+
+</html>

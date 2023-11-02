@@ -1,0 +1,245 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #c33404;
+  padding: 10px;
+  margin: 0;
+}
+
+.logo {
+  margin-left: 10px;
+  padding: 0;
+
+}
+
+.nav-buttons {
+  margin-right: 10px;
+  color: sblue;
+}
+
+.nav-buttons a {
+  color: white;
+  text-decoration: none;
+  font-size: 22px;
+  font-family: Helvetica;
+  font-weight: 700;
+  word-wrap: break-word;
+  margin: 0 15px;
+}
+
+.nav-buttons a.active {
+  background-color: white;
+}
+
+.parkinfo-bg {
+  margin: 0;
+  padding: 0;
+  background-color: #252525;
+  overflow-x: hidden;
+}
+
+#park-img {
+  position: relative;
+}
+
+#park-image {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 50vh;
+}
+
+#park-name {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 72px;
+  color: white;
+  font-weight: 700;
+  font-family: 'Helvetica', sans-serif;
+  text-align: center;
+}
+
+#park-info p {
+  font-family: 'Helvetica', sans-serif;
+  color: white;
+  font-size: 12pt;
+}
+
+.park-details {
+  background: white;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  font-family: 'Helvetica', sans-serif;
+}
+
+.park-detail {
+  display: inline-block;
+  margin-right: 20px;
+  font-family: 'Helvetica', sans-serif;
+}
+
+.detail-header {
+  font-weight: bold;
+}
+
+.button-7 {
+  background-color: #0520F0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  font-weight: 500;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  padding: 5px 10px;
+  transition: all 250ms;
+  user-select: none;
+  margin: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.button-7:hover,
+.button-7:focus {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.button-7:hover {
+  transform: translateY(-1px);
+}
+
+.button-7:active {
+  background-color: #e6e6e6;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  transform: translateY(0);
+}
+
+#searchButton {
+  height: 62px;
+  line-height: 62px;
+  padding: 10px 20px;
+  vertical-align: middle;
+}
+
+.park-details {
+  background: white;
+  padding: 6px;
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  font-family: Helvetica, sans-serif;
+}
+
+.overview-container,
+.climate-container {
+  margin-left: 20px;
+  font-family: Helvetica, sans-serif;
+  color: #FFF;
+}
+
+.park-detail a {
+  margin-left: auto;
+}
+
+.park-details {
+  background: white;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+.park-detail {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+}
+
+.detail-header {
+  font-weight: bold;
+}
+
+.park-detail h3 {
+  margin-bottom: 5px;
+}
+
+.park-detail p {
+  font-family: 'Helvetica', sans-serif;
+}
+
+.park-detail a {
+  margin-top: auto;
+}
+
+.park-info-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+  background-color: #c33404;
+  color: #c33;
+  text-decoration: none;
+}
+
+.overview-container,
+.climate-container {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.overview-title,
+.climate-title {
+  font-weight: bold;
+  margin: 0;
+  font-size: 40px;
+}
+
+.overview-text,
+.climate-text {
+  font-family: 'Helvetica', sans-serif;
+  margin: 0;
+  font-size: 20px;
+}
+
+
+.park-picturesinfo-container {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  height: 50rem;
+  margin: 0px;
+}
+
+.park-activities {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: 'Helvetica', sans-serif;
+
+}
+
+.text-box {
+  font-family: 'Helvetica', sans-serif;
+  max-width: 50%;
+  margin: 0;
+}
+
+.park-picture {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.park-picture img {
+  max-width: 100%;
+  height: auto;
+}
